@@ -78,5 +78,24 @@ app.post('/messages/save', async (req, res) => {
   }
 })
 
+app.get('/about', async (req,res) => {
+  try {
+    res.status(200).json({
+      name: "Chuqiao Huang",
+      intro: [
+        "My name is Huang Chuqiao and my English name is Corrine. I major computer science in NYU. This is my last semester in NYU and I am planning to go to Los Angelos after my graduation." ,
+        "I am interested in playing badminton, traveling and tasting local delicacies from different places.",
+        "I have a dog named Carter, who currently lives with me in New York. He is a Bernese Mountain Dog. I love him so much! "
+      ],
+      photoURL: "URL link"
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(400).json({
+      error: err,
+      status: 'failed to retrieve data',
+    })
+  }
+});
 // export the express app we created to make it available to other modules
 module.exports = app // CommonJS export style!
