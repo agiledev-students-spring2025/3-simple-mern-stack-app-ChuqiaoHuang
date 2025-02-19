@@ -9,7 +9,7 @@ const AboutUs = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/aboutUs`)
+      .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/about`)
       .then((res) => {
         setName(res.data.name);
         setIntro(res.data.info);
@@ -28,3 +28,6 @@ const AboutUs = () => {
     </>
   )
 }
+
+// make this component available to be imported into any other file
+export default AboutUs; 

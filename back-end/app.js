@@ -78,7 +78,7 @@ app.post('/messages/save', async (req, res) => {
   }
 })
 
-app.get('/aboutUs', async (req,res) => {
+app.get('/about', async(req, res) => {
   try {
     res.status(200).json({
       name: "Chuqiao Huang",
@@ -87,15 +87,17 @@ app.get('/aboutUs', async (req,res) => {
         "I am interested in playing badminton, traveling and tasting local delicacies from different places.",
         "I have a dog named Carter, who currently lives with me in New York. He is a Bernese Mountain Dog. I love him so much! "
       ],
-      photoURL: "https://imgur.com/a/5pvKAqw"
+      photoURL: "http://localhost:5002/IMG_3823.jpg",
+      status: 'all good',
     })
   } catch (err) {
-    console.error(err)
+    console.log(err)
     res.status(400).json({
       error: err,
       status: 'failed to retrieve data',
     })
   }
-});
+})
+
 // export the express app we created to make it available to other modules
 module.exports = app // CommonJS export style!
