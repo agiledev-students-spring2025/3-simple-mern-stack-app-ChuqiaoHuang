@@ -83,7 +83,11 @@ app.get('/about', async(req, res) => {
   try {
     res.status(200).json({
       name: "Chuqiao Huang",
-      info: "My name is Huang Chuqiao and my English name is Corrine. I major computer science in NYU. This is my last semester in NYU and I am planning to go to Los Angelos after my graduation. I am interested in playing badminton, traveling and tasting local delicacies from different places. I have a dog named Carter, who currently lives with me in New York. He is a Bernese Mountain Dog. I love him so much! ",
+      info: [
+        "My name is Huang Chuqiao and my English name is Corrine. I major computer science in NYU. This is my last semester in NYU and I am planning to go to Los Angelos after my graduation. ",
+        "I am interested in playing badminton, traveling and tasting local delicacies from different places. ",
+        "I have a dog named Carter, who currently lives with me in New York. He is a Bernese Mountain Dog. I love him so much! ",
+      ],
       photoURL: "http://localhost:5002/IMG_3823.jpg"
     })
   } catch (err) {

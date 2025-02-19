@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const AboutUs = () => {
   const [name, setName] = useState("");
-  const [intro, setIntro] = useState("");
+  const [intro, setIntro] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
@@ -12,10 +12,11 @@ const AboutUs = () => {
       .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/about`)
       .then((res) => {
         setName(res.data.name);
-        setIntro(res.data.info);
-        setImageUrl(res.data.photoURL);
+        setIntro(res.data.info); 
+        setImageUrl(res.data.photoURL); 
       })
-  })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []); 
 
   return (
     <>
@@ -23,11 +24,13 @@ const AboutUs = () => {
       <span>
         <img src={imageUrl} />
         <h2>{name}</h2>
-        <p>{intro}</p>
+        {intro.map((para, i) => (
+          <p key={i}>{para}</p> 
+        ))}
       </span>
     </>
-  )
-}
+  );
+};
 
 // make this component available to be imported into any other file
 export default AboutUs; 
