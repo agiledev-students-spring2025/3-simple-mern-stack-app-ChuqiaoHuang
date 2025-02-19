@@ -78,7 +78,7 @@ app.post('/messages/save', async (req, res) => {
   }
 })
 
-app.get('/about', async (req,res) => {
+app.get('/aboutUs', async (req,res) => {
   try {
     res.status(200).json({
       name: "Chuqiao Huang",
