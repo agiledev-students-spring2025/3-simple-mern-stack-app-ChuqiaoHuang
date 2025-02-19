@@ -11,6 +11,7 @@ app.use(cors()) // allow cross-origin resource sharing
 // use express's builtin body-parser middleware to parse any data included in a request
 app.use(express.json()) // decode JSON-formatted incoming POST data
 app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming POST data
+app.use(express.static('public'))
 
 // connect to database
 mongoose
@@ -82,19 +83,14 @@ app.get('/about', async(req, res) => {
   try {
     res.status(200).json({
       name: "Chuqiao Huang",
-      intro: [
-        "My name is Huang Chuqiao and my English name is Corrine. I major computer science in NYU. This is my last semester in NYU and I am planning to go to Los Angelos after my graduation." ,
-        "I am interested in playing badminton, traveling and tasting local delicacies from different places.",
-        "I have a dog named Carter, who currently lives with me in New York. He is a Bernese Mountain Dog. I love him so much! "
-      ],
-      photoURL: "http://localhost:5002/IMG_3823.jpg",
-      status: 'all good',
+      info: "My name is Huang Chuqiao and my English name is Corrine. I major computer science in NYU. This is my last semester in NYU and I am planning to go to Los Angelos after my graduation. I am interested in playing badminton, traveling and tasting local delicacies from different places. I have a dog named Carter, who currently lives with me in New York. He is a Bernese Mountain Dog. I love him so much! ",
+      photoURL: "http://localhost:5002/IMG_3823.jpg"
     })
   } catch (err) {
     console.log(err)
     res.status(400).json({
       error: err,
-      status: 'failed to retrieve data',
+      status: 'failed to receive data',
     })
   }
 })
