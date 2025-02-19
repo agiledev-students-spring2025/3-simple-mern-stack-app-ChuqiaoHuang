@@ -9,7 +9,7 @@ const AboutUs = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/about`)
+      .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/aboutUs`)
       .then((res) => {
         setName(res.data.name);
         setIntro(res.data.info);
