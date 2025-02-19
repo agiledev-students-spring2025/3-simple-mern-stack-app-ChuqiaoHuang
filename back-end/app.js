@@ -87,7 +87,7 @@ app.get('/about', async (req,res) => {
         "I am interested in playing badminton, traveling and tasting local delicacies from different places.",
         "I have a dog named Carter, who currently lives with me in New York. He is a Bernese Mountain Dog. I love him so much! "
       ],
-      photoURL: "URL link"
+      photoURL: "https://imgur.com/a/5pvKAqw"
     })
   } catch (err) {
     console.error(err)
